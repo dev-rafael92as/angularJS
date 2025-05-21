@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html ng-app="appAngular">
+<head>
+    <title>Controller: arrays</title>
+    <link href="../css/estilos.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+</head>
+<body ng-controller="Principal as ctl">
+
+    <!-- conteúdo da view -->
+    <div ng-repeat="aula in ctl.aulas">
+        <p>{{aula}}</p>
+    </div>
+
+
+    <!-- definição da api e do controller -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript">
+        angular.module('appAngular', [])
+            .controller('Principal', [function () {
+
+                var self = this;
+
+                self.aulas = [
+                    "Aula 01 - Introdução ao AngularJS",
+                    "Aula 02 - Diretivas",
+                    "Aula 03 - Filtros",
+                    "Aula 04 - Arrays",
+                    "Aula 05 - Serviços",
+                    "Aula 06 - Promises",
+                ]
+            }]);
+    </script>
+</body>
+</html>
