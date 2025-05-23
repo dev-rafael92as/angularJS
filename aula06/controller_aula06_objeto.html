@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html ng-app="appAngular">
+<head>
+    <title>Controller: objeto</title>
+    <link href="../css/estilos.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+
+</head>
+<body ng-controller="Principal as ctl">
+
+    <!-- conteúdo da view -->
+     <h2>Informações da empresa</h2>
+    <div ng-repeat="(atributo, dados) in ctl.empresa">
+        <strong ng-bind="atributo"></strong>
+        <br>
+        CNPJ: {{dados.CNPJ}}
+        <br>
+        Descrição: {{dados.Descricao}}
+        <br>
+        Endereço: {{dados.Endereco.Rua}}, {{dados.Endereco.Numero}} - {{dados.Endereco.Bairro}} - {{dados.Endereco.Cidade}} - {{dados.Endereço.Estado}} - {{dados.Endereço.CEP}}
+        <br>
+        <span>------------------------</span>
+    </div>
+
+
+    <!-- definição da api e do controller -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript">
+        angular.module('appAngular', [])
+            .controller('Principal', [function () {
+
+                var self = this;
+
+                self.empresa = {
+                    Atributos: {
+                        CNPJ: "12345678901234",
+                        Descricao: "Empresa de teste",
+                        Endereco: {
+                            Rua: "Rua 1",
+                            Numero: "123",
+                            Bairro: "Bairro 1",
+                            Cidade: "Cidade 1",
+                            Estado: "Estado 1",
+                            CEP: "12345678901234"
+                        }
+                    }
+                }
+            }]);
+    </script>
+</body>
+</html>
